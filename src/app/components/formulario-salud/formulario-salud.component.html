@@ -1,0 +1,143 @@
+<div class="card" style="width: 60rem;">
+    <div class="card-body">
+      <div>
+        <!-- Franja Azul: Formulario de Salud -->
+        <div class="row">
+            <div class="col-12">
+                <div class="bg-primary text-white text-center py-3">
+                    <a style="color: aliceblue;" routerLink="/datoss">regresar</a>
+                    <h1>Formulario de Salud</h1>
+                </div>
+            </div>  
+        </div>
+
+        <!-- Título: Medición de la Presión Arterial -->
+        <div class="row mt-4">
+            <div class="col-12 justify-content-center text-center" style="width: 100%; background-color: aqua;">
+                <h2 class="fw-bold">MEDICIÓN DE LA PRESIÓN ARTERIAL</h2>
+            </div>
+        </div>
+
+        <!-- Inputs para PA Sistólica y Diastólica -->
+        <div class="row mt-3">
+            <div class="col-6 d-flex align-items-center justify-content-between" style="background-color: green; width: 100%;">
+                 
+                <label class="form-label" for="paSistolica">PA Sistólica / PA Diastólica:</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="paSistolica" 
+                    name="paSistolica" 
+                    placeholder="Ejemplo: 120/80" 
+                    required>
+                <div class="invalid-feedback">
+                    Por favor, ingrese los valores de PA.
+                </div>
+                <div class="valid-feedback">
+                    ¡Correcto!
+                </div>
+            </div>
+        </div>
+
+        <!-- Nota -->
+        <div class="row mt-2">
+            <div class="col-12">
+                <p class="text-muted">
+                    <small>
+                        Nota: Si tiene un valor por encima de 140 mmHg podría indicar hipertensión. Menos de 60 mmHg podría indicar hipotensión.
+                    </small>
+                </p>
+            </div>
+        </div>
+
+        <!-- Título: Tabaquismo -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h2 class="fw-bold">TABAQUISMO</h2>
+            </div>
+        </div>
+
+        <!-- Pregunta: ¿Ha fumado hoy? -->
+        <div class="row mt-3">
+            <div class="col-6">
+                <label class="form-label">¿Ha fumado el día de hoy?</label>
+                <div class="d-flex col-6 justify-content-between    " style="background-color: pink;">
+                    <div>
+                        <input type="radio" id="fumadoSi" name="fumadoHoy" value="si" required>
+                        <label for="fumadoSi">Sí</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="fumadoNo" name="fumadoHoy" value="no">
+                        <label for="fumadoNo">No</label>
+                    </div>
+                  
+                </div>
+                
+                
+            </div>
+        </div>
+
+        <!-- Cantidad de cigarrillos fumados -->
+        <div class="row mt-3">
+            <div class="col-6  ">
+        
+                <label class="form-label" for="cantidadCigarrillos">Cantidad de cigarrillos fumados:</label>
+                <input 
+                    type="number" 
+                    class="form-control" 
+                    id="cantidadCigarrillos" 
+                    name="cantidadCigarrillos" 
+                    min="0" 
+                    placeholder="Ingrese el número de cigarrillos" 
+                    required>
+              
+                
+                <div class="invalid-feedback">
+                    Por favor, ingrese la cantidad.
+                </div>
+                <div class="valid-feedback">
+                    ¡Correcto!
+                </div>
+            </div>
+        </div>
+
+        <!-- Título: Consumo de Medicamentos -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <h2 class="fw-bold">CONSUMO DE MEDICAMENTOS</h2>
+            </div>
+        </div>
+
+        <!-- Pregunta: ¿Consume medicamentos? -->
+        <div class="row mt-3">
+            <div class="col-6">
+                <label class="form-label">¿Consume algún medicamento de tratamiento?</label>
+                <div class="d-flex col-6 justify-content-between   " style="background-color: orange">
+                    <div>
+                        <input type="radio" id="medicamentoSi" name="consumeMedicamento" value="si" required>
+                        <label for="medicamentoSi">Sí</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="medicamentoNo" name="consumeMedicamento" value="no">
+                        <label for="medicamentoNo">No</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Botón registrar -->
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col-10">
+                <input class="btn btn-primary" type="submit" id="btnRegistrar" name="btnRegistrar" value="Registrar">
+            </div>
+        </div> <!-- Cierre del div.row adicional -->
+
+    </div> <!-- Cierre del div.row principal -->
+    <!-- Se invoca al método que calcula la edad de la persona -->
+    <p>Edad: {{ calcularEdad() }} años</p>
+
+   
+    </div>
+  </div>
