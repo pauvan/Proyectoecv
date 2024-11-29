@@ -1,29 +1,28 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DatosBasicosComponent } from '../components/datos-basicos/datos-basicos.component';
-import { RegistroSaludComponent } from './components/registro-salud/registro-salud.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
-import path from 'path';
-import { FormularioSaludComponent } from './components/formulario-salud/formulario-salud.component';
+
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
-    {
-        path:'datoss',
-        component:RegistroSaludComponent
-    },
-    {
-        path:'registro',
-        component:CarouselComponent
-    },
-    {
-        path:'formulario',
-        component:FormularioSaludComponent
-    }
+  {
+    path: 'main',
+    component: CarouselComponent,
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
 ];
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
-  })
-  export class AppRoutingModule {}
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
