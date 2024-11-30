@@ -43,6 +43,7 @@
                       id="nombreCompleto"
                       name="nombreCompleto"
                       placeholder="Escribe tu nombre completo"
+                      pattern="^[a-zA-ZÁÉÍÓÚáéíóúÑñ]+( [a-zA-ZÁÉÍÓÚáéíóúÑñ]+)+$"
                       required
                     />
                     <div class="invalid-feedback">
@@ -61,12 +62,44 @@
                       id="programaAcademico"
                       name="programaAcademico"
                       placeholder="Escribe tu programa académico"
+                      formControlName="programaAcademico"
                       required
                     />
-                    <div class="invalid-feedback">
-                      Por favor, escribe tu programa académico.
+                    <!-- Mensajes de error y éxito -->
+                    <div
+                      *ngIf="
+                        programaAcademicoForm.get('programaAcademico')
+                          ?.invalid &&
+                        programaAcademicoForm.get('programaAcademico')?.touched
+                      "
+                    >
+                      <div
+                        *ngIf="
+                          programaAcademicoForm
+                            .get('programaAcademico')
+                            ?.hasError('required')
+                        "
+                      >
+                        Por favor, escribe tu programa académico.
+                      </div>
+                      <div
+                        *ngIf="
+                          programaAcademicoForm
+                            .get('programaAcademico')
+                            ?.hasError('programaInvalido')
+                        "
+                      >
+                        El programa académico ingresado no es válido.
+                      </div>
                     </div>
-                    <div class="valid-feedback">¡Correcto!</div>
+                    <div
+                      *ngIf="
+                        programaAcademicoForm.get('programaAcademico')?.valid &&
+                        programaAcademicoForm.get('programaAcademico')?.touched
+                      "
+                    >
+                      ¡Correcto!
+                    </div>
                   </div>
                   <!-- Fecha -->
 
@@ -178,6 +211,7 @@
                       class="form-control col-4"
                       id="paSistolica"
                       name="paSistolica"
+                      formControlName="paSistolica"
                       placeholder="Ejemplo: 120/80"
                       required
                       style="width: 18.75rem"
